@@ -5,7 +5,20 @@
       <link href="global.css" type="text/css" rel="stylesheet">
       <style type="text/css">
     </style>
-    </head>
+    
+    <style>
+      .reading {
+          display: none;
+          margin-top: 10px;
+      }
+
+      h3 {
+          cursor: pointer;
+      }
+  </style>
+  
+  
+  </head>
 
 <body>
 
@@ -645,6 +658,18 @@
     </ul> 
 </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var h3 = document.querySelector('h3');
+      var readingList = document.querySelector('.reading');
+
+      h3.addEventListener('click', function () {
+          readingList.style.display = readingList.style.display === 'none' ? 'block' : 'none';
+      });
+  });
+</script>
+
 
 
 </body>
