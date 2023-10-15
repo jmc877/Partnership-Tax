@@ -82,7 +82,9 @@
 
 
   </div>
-      
+   
+  <button id="toggle-all">Expand All</button>
+
   <div class="article">
 
     <h3>Required Texts and Materials</h3>
@@ -661,12 +663,26 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
       var headings = document.querySelectorAll('h3');
+      var readingLists = document.querySelectorAll('.reading');
+      var toggleAllButton = document.getElementById('toggle-all');
+
+      var allExpanded = false;  // Track whether all sections are currently expanded or collapsed
 
       headings.forEach(function (h3) {
           h3.addEventListener('click', function () {
               var readingList = this.nextElementSibling;
               readingList.style.display = readingList.style.display === 'none' ? 'block' : 'none';
           });
+      });
+
+      toggleAllButton.addEventListener('click', function () {
+          allExpanded = !allExpanded;  // Flip the current state
+
+          readingLists.forEach(function (list) {
+              list.style.display = allExpanded ? 'block' : 'none';
+          });
+
+          toggleAllButton.textContent = allExpanded ? 'Collapse All' : 'Expand All';
       });
   });
 </script>
